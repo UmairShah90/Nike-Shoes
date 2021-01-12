@@ -1,38 +1,636 @@
-.App {
+* {
+  margin: 0;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(-90deg, rgb(92, 82, 224), white);
+  height: 100vh;
+}
+
+/* Main Container */
+.container {
+  font-family: "Merienda One", cursive;
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Nav Container */
+/* NAV HOVER EFFECT */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  background: #5d0137;
+  height: 3px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nike-shoes {
+  margin: 20px;
+  color: #500619;
+  text-shadow: 2px 4px 8px white;
+  font-variant: small-caps;
+  font-size: 200%;
+}
+.logo {
+  height: 60px;
+  position: absolute;
+  /* left: 50px; */
+  top: 10px;
+}
+.nike-logo {
+  height: 100px;
+  position: absolute;
+  left: 50px;
+  top: 77px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-container {
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* background: #e0d9e7c5; */
+  background: linear-gradient(-90deg, rgb(92, 82, 224), white);
+  border-radius: 30px;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 4px black;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+  padding: 10px;
+  font-variant: small-caps;
+}
+.active {
+  text-decoration: none;
+  border-bottom: 3px solid #6f2f40;
+  color: black;
+  font-variant: small-caps;
+}
+
+.nav-cart {
+  height: 35px;
+  margin: 0;
+  padding: 0;
+}
+/* MEDIA QUERIES */
+
+@media (max-width: 800px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .nike-shoes {
+    font-size: 150%;
+  }
+
+  .nav-container {
+    font-size: x-small;
+  }
+
+  .nav-cart {
+    height: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-link {
+    margin: 10px 0;
+    padding: 10px 2;
+  }
+}
+
+@media (max-width: 325px) {
+  .nav-link {
+    margin: 10px 0;
+    padding: 10px 1;
+  }
+
+  .nav-cart {
+    height: 14px;
+  }
+}
+
+
+/* Home */
+.banner-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("./images/nike-main.jpg");
+  background-size: cover;
+  height: 100vh;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(14, 12, 12, 0.534);
+  background-position: center;
+}
+.tag-line {
+  font-family: "Acme", sans-serif;
+  font-size: 70px;
+  display: block;
+  color: darkblue;
+  margin-top: 50px;
+  font-weight: bold;
+}
+.tagline-para {
+  display: flex;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  font-family: "Karla", sans-serif;
+  font-size: 25px;
+  color: #0c0b0bfd;
+}
+.latest-designs {
+  font-size: 20px;
+  text-shadow: 1px 1px 2px #ffffff;
+}
+.latest-design-container {
+  margin: 10px;
+}
+.line {
+  display: inline-block;
+  width: 20%;
+}
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-products {
+  margin: 10px 10px;
+  text-decoration: none;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  border-radius: 20px;
+  padding: 10px 0;
+  box-shadow: 2px 2px 2px gray;
+  font-size: 100%;
+  width: 270px;
+  background: white;
+  height: 250px;
+}
+
+.home-products:hover {
+  border: 1px solid rgba(59, 14, 221, 0.87);
+}
+
+.product-container h3 {
+  font-size: 98%;
+}
+.products-container {
+  flex-wrap: wrap;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.products-shoe-image {
+  height: 150px;
+}
+/* MEDIA QUERIES */
+
+@media (max-width: 1000px) {
+  .banner-image {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .banner-image {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-products {
+    width: 200px;
+    height: 150px;
+    font-size: 70%;
+  }
+
+  .tagline {
+    font-size: 50px;
+  }
+
+  .tagline-para {
+    font-size: 20px;
+  }
+
+  .about-button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .line {
+    width: 10%;
+  }
+
+  .latest-designs {
+    font-size: 18px;
+  }
+
+  .tagline-para {
+    font-size: 14px;
+  }
+
+  .tagline {
+    font-size: 40px;
+  }
+
+  .about-button {
+    font-size: 12px;
+  }
+
+  .banner-image {
+    height: 40vh;
+  }
+}
+/* About */
+.banner-image-about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./images/shoe-about.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px gray;
+}
+.about-nike {
+  padding: 20px;
+  margin-left: 60%;
+  padding-top: 140px;
+}
+.about-nike-text {
   color: white;
+  text-shadow: 3px 4px 2px #500619;
+  text-transform: uppercase;
+}
+.about-nike > p {
+  color: white;
+  font-family: "Rowdies", cursive;
+  font-size: 22px;
+  margin: 20px;
+}
+.about-nike-part {
+  margin: 40px;
+  padding: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.about-nike-heading {
+  font-family: "Rowdies", cursive;
+  margin: 20px;
+  font-size: 40px;
+  text-shadow: 4px 2px 1px black;
+  color: #5fa5ff;
+  font-variant: small-caps;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.about-nike-para {
+  font-family: "Rowdies", cursive;
+  padding: 0px;
+  text-shadow: 1px 1px 1px gray;
+  justify-content: center;
+  font-size: 25px;
+}
+/* MEDIA QUERIES */
+
+@media (max-width: 1000px) {
+  .about-nike {
+    padding-top: 400px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .about-nike-text {
+    font-size: 20px;
   }
+
+  .about-nike > p {
+    font-size: 14px;
+  }
+
+  .about-nike-heading {
+    font-size: 30px;
+  }
+
+  .about-nike-part {
+    margin: 2px;
+  }
+
+  .about-nike-para {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .banner-image-about {
+    height: 50vh;
+  }
+
+  .about-nike {
+    padding-top: 90px;
+  }
+
+  .about-nike-heading {
+    padding: 0;
+  }
+
+  .about-nike-part {
+    padding: 2px;
+  }
+
+  .about-nike > p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 750px) {
+  .banner-image-about {
+    height: 40vh;
+  }
+
+  .about-nike {
+    padding-top: 90px;
+  }
+
+  .about-nike-heading {
+    padding: 0;
+  }
+
+  .about-nike-part {
+    padding: 2px;
+  }
+
+  .about-nike > p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-nike {
+    padding-top: 120px;
+  }
+
+  .about-nike > p {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-nike-text {
+    font-size: 13px;
+  }
+
+  .about-nike-heading {
+    font-size: 25px;
+  }
+
+  .about-nike-para {
+    font-size: 12px;
+  }
+
+  .about-nike {
+    padding-top: 100px;
+  }
+
+  .about-nike > p {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-nike-text {
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .about-nike-heading {
+    font-size: 23px;
+    padding: 0;
+  }
+
+  .about-nike-para {
+    font-size: 10px;
+  }
+
+  .about-nike {
+    padding-top: 100px;
+  }
+
+  .about-nike > p {
+    padding: 0;
+    margin: 1;
+    font-size: 5px;
+  }
+
+  .about-nike {
+    padding: 0;
+    padding-top: 150px;
+  }
+}
+/* Product */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.products {
+  margin: 10px 10px;
+  text-decoration: none;
+  background: white;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 8px 8px 8px #481444;
+  width: 350px;
+  height: 300px;
+}
+.products-shoe-image {
+  height: 150px;
+}
+
+.shoe-name {
+  color: #5d0137;
+}
+/* Shoe */
+.cart-image {
+  height: 30px;
+}
+.cart-button {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: #efd2d2;
+  cursor: pointer;
+  box-shadow: 0 5px #999;
+}
+
+.cart-button:hover {
+  background: #3e8e41ce;
+}
+
+.shoe-price {
+  color: rgb(96, 110, 96);
+  text-shadow: 1px 1px 1px black;
+}
+/* Product Items */
+.product-items {
+  margin: 10px auto;
+  padding: 10px 0;
+  color: #5d0137;
+  width: 80%;
+  height: auto;
+}
+
+.shoe-image {
+  width: 80%;
+  margin: 10px;
+  border-radius: 60px;
+  box-shadow: 2px 2px 2px gray;
+
+  height: auto;
+}
+
+/* Cart */
+
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.products-section {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.item-button {
+  padding: 0.3rem;
+  width: 2rem;
+  font-size: 1.2rem;
+  margin: 0.1rem;
+  cursor: pointer;
+}
+
+.cart-products {
+  display: inline-block;
+  margin: 10px 10px;
+  text-decoration: none;
+  position: relative;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  border-radius: 20px;
+  padding: 10px 0;
+  background: #fafaf8;
+  box-shadow: 2px 2px 2px gray;
+  width: 300px;
+  height: 290px;
+}
+
+.cart-shoe-name {
+  color: black;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.cart-shoe-image {
+  border-radius: 50px;
+  height: 150px;
+}
+
+.your-products {
+  color: black;
+  margin: 15px;
+  text-shadow: 2px 3px 3px gray;
+}
+
+.shoe-price-cart {
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif !important;
+  color: rgb(42, 38, 38);
+}
+
+.quantity {
+  margin: 5 auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px gray;
+  align-self: center;
+  padding: 8px;
+  outline: none;
+  border-radius: 10px;
+  width: 60px;
+  background: #e0e0e0;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 6px;
+  font-family: cursive;
+  background: transparent;
+  outline: none;
+  border: none;
+  text-shadow: 2px 1px 2px gray;
+  color: black;
+  font-size: 20px;
+  right: 10px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.clear-cart-button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #efd2d2;
+  cursor: pointer;
+  box-shadow: 0 5px #999;
+}
+
+.clear-cart-image {
+  height: 50px;
+}
+
+.clear-cart-button:hover {
+  background: #3e8e41ce;
+}
+
+.clear-cart-button:active {
+  background-color: #3b953e;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
 }
